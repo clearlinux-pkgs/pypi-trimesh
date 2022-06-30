@@ -4,12 +4,13 @@
 #
 Name     : pypi-trimesh
 Version  : 3.12.6
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/37/92/3f6e2b6585c59e14728d79ca497a0eab832b26acecdb847015841d8851e7/trimesh-3.12.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/37/92/3f6e2b6585c59e14728d79ca497a0eab832b26acecdb847015841d8851e7/trimesh-3.12.6.tar.gz
 Summary  : Import, export, process, analyze and view triangular meshes.
 Group    : Development/Tools
 License  : MIT
+Requires: pypi-trimesh-license = %{version}-%{release}
 Requires: pypi-trimesh-python = %{version}-%{release}
 Requires: pypi-trimesh-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -21,6 +22,14 @@ BuildRequires : pypi(wheel)
 [![trimesh](https://trimsh.org/images/logotype-a.svg)](http://trimsh.org)
 -----------
 [![Github Actions](https://github.com/mikedh/trimesh/workflows/Release%20Trimesh/badge.svg)](https://github.com/mikedh/trimesh/actions)  [![PyPI version](https://badge.fury.io/py/trimesh.svg)](https://badge.fury.io/py/trimesh) [![codecov](https://codecov.io/gh/mikedh/trimesh/branch/main/graph/badge.svg?token=4PVRQXyl2h)](https://codecov.io/gh/mikedh/trimesh)
+
+%package license
+Summary: license components for the pypi-trimesh package.
+Group: Default
+
+%description license
+license components for the pypi-trimesh package.
+
 
 %package python
 Summary: python components for the pypi-trimesh package.
@@ -54,7 +63,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656604580
+export SOURCE_DATE_EPOCH=1656623321
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -78,6 +87,8 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-trimesh
+cp %{_builddir}/trimesh-3.12.6/LICENSE.md %{buildroot}/usr/share/package-licenses/pypi-trimesh/4340a750e3e91283c3d07c3eebda208f9e666c0b
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -94,6 +105,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-trimesh/4340a750e3e91283c3d07c3eebda208f9e666c0b
 
 %files python
 %defattr(-,root,root,-)
