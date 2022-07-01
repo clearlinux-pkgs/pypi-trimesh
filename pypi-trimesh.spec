@@ -4,7 +4,7 @@
 #
 Name     : pypi-trimesh
 Version  : 3.12.6
-Release  : 2
+Release  : 3
 URL      : https://files.pythonhosted.org/packages/37/92/3f6e2b6585c59e14728d79ca497a0eab832b26acecdb847015841d8851e7/trimesh-3.12.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/37/92/3f6e2b6585c59e14728d79ca497a0eab832b26acecdb847015841d8851e7/trimesh-3.12.6.tar.gz
 Summary  : Import, export, process, analyze and view triangular meshes.
@@ -63,7 +63,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656623321
+export SOURCE_DATE_EPOCH=1656690981
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
