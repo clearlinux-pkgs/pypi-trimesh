@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-trimesh
-Version  : 3.21.0
-Release  : 64
-URL      : https://files.pythonhosted.org/packages/c3/e2/830f4b5dadf1e5285a4b6c72cdeee54a82b1ed1726abb931c8aaa9e45ac7/trimesh-3.21.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/c3/e2/830f4b5dadf1e5285a4b6c72cdeee54a82b1ed1726abb931c8aaa9e45ac7/trimesh-3.21.0.tar.gz
+Version  : 3.21.2
+Release  : 65
+URL      : https://files.pythonhosted.org/packages/bd/68/b624e6328da9cd124e7051a91ccc3cd88457ed6c8b0defd9a11107a30805/trimesh-3.21.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/bd/68/b624e6328da9cd124e7051a91ccc3cd88457ed6c8b0defd9a11107a30805/trimesh-3.21.2.tar.gz
 Summary  : Import, export, process, analyze and view triangular meshes.
 Group    : Development/Tools
 License  : MIT
@@ -15,9 +15,6 @@ Requires: pypi-trimesh-license = %{version}-%{release}
 Requires: pypi-trimesh-python = %{version}-%{release}
 Requires: pypi-trimesh-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(numpy)
-BuildRequires : pypi(setuptools)
-BuildRequires : pypi(wheel)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -56,10 +53,10 @@ python3 components for the pypi-trimesh package.
 
 
 %prep
-%setup -q -n trimesh-3.21.0
-cd %{_builddir}/trimesh-3.21.0
+%setup -q -n trimesh-3.21.2
+cd %{_builddir}/trimesh-3.21.2
 pushd ..
-cp -a trimesh-3.21.0 buildavx2
+cp -a trimesh-3.21.2 buildavx2
 popd
 
 %build
@@ -67,7 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679501395
+export SOURCE_DATE_EPOCH=1679939465
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
