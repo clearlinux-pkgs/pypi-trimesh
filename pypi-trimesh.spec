@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-trimesh
-Version  : 3.21.4
-Release  : 67
-URL      : https://files.pythonhosted.org/packages/9e/4b/db657e8cd1f417dd4753469ea98b0ba1c81bcfd7179bc1beebccae5fddb6/trimesh-3.21.4.tar.gz
-Source0  : https://files.pythonhosted.org/packages/9e/4b/db657e8cd1f417dd4753469ea98b0ba1c81bcfd7179bc1beebccae5fddb6/trimesh-3.21.4.tar.gz
+Version  : 3.21.5
+Release  : 68
+URL      : https://files.pythonhosted.org/packages/e0/77/98a8b2f53a0210bb1a61ddd499a608fa9ecd3d760188a2da270eb48fb4c1/trimesh-3.21.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/e0/77/98a8b2f53a0210bb1a61ddd499a608fa9ecd3d760188a2da270eb48fb4c1/trimesh-3.21.5.tar.gz
 Summary  : Import, export, process, analyze and view triangular meshes.
 Group    : Development/Tools
 License  : MIT
@@ -53,10 +53,10 @@ python3 components for the pypi-trimesh package.
 
 
 %prep
-%setup -q -n trimesh-3.21.4
-cd %{_builddir}/trimesh-3.21.4
+%setup -q -n trimesh-3.21.5
+cd %{_builddir}/trimesh-3.21.5
 pushd ..
-cp -a trimesh-3.21.4 buildavx2
+cp -a trimesh-3.21.5 buildavx2
 popd
 
 %build
@@ -64,7 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680706252
+export SOURCE_DATE_EPOCH=1681316806
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
