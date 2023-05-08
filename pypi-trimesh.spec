@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-trimesh
-Version  : 3.21.5
-Release  : 68
-URL      : https://files.pythonhosted.org/packages/e0/77/98a8b2f53a0210bb1a61ddd499a608fa9ecd3d760188a2da270eb48fb4c1/trimesh-3.21.5.tar.gz
-Source0  : https://files.pythonhosted.org/packages/e0/77/98a8b2f53a0210bb1a61ddd499a608fa9ecd3d760188a2da270eb48fb4c1/trimesh-3.21.5.tar.gz
+Version  : 3.21.6
+Release  : 69
+URL      : https://files.pythonhosted.org/packages/bb/c8/a9a430146609b2f3671b0e60a7004c2623265d338d2a02a212a43e197ab2/trimesh-3.21.6.tar.gz
+Source0  : https://files.pythonhosted.org/packages/bb/c8/a9a430146609b2f3671b0e60a7004c2623265d338d2a02a212a43e197ab2/trimesh-3.21.6.tar.gz
 Summary  : Import, export, process, analyze and view triangular meshes.
 Group    : Development/Tools
 License  : MIT
@@ -15,6 +15,8 @@ Requires: pypi-trimesh-license = %{version}-%{release}
 Requires: pypi-trimesh-python = %{version}-%{release}
 Requires: pypi-trimesh-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+BuildRequires : pypi(setuptools)
+BuildRequires : pypi(wheel)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -53,10 +55,10 @@ python3 components for the pypi-trimesh package.
 
 
 %prep
-%setup -q -n trimesh-3.21.5
-cd %{_builddir}/trimesh-3.21.5
+%setup -q -n trimesh-3.21.6
+cd %{_builddir}/trimesh-3.21.6
 pushd ..
-cp -a trimesh-3.21.5 buildavx2
+cp -a trimesh-3.21.6 buildavx2
 popd
 
 %build
@@ -64,15 +66,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681316806
+export SOURCE_DATE_EPOCH=1683560537
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
