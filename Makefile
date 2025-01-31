@@ -1,5 +1,5 @@
 PKG_NAME := pypi-trimesh
-URL = https://files.pythonhosted.org/packages/df/0e/b627a5aa602a2d217cd3297c63dffd0294d002ae78457d31f1e1c2692b5a/trimesh-4.6.0.tar.gz
+URL = https://files.pythonhosted.org/packages/d6/f2/0cfa459cb793aedad26776e5fd9fba094438279ef40dba3e3062e9b099bf/trimesh-4.6.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
